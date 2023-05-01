@@ -35,6 +35,12 @@ public class employeeLogin extends HttpServlet {
             Boolean ifExist=rs.next();
             if(ifExist) {
                 obj.put("success","login successfully");
+                String query = "select employeeid from employees where email='"+mail+"';";
+                rs=stmt.executeQuery(query);
+                rs.next();
+                int id = rs.getInt(1);
+                obj.put("employeeid",id);
+
             }
             else{
                 obj.put("success","login failed incorrect username or password");
