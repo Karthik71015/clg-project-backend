@@ -43,6 +43,7 @@ public class getFullEmployeeDetails extends HttpServlet {
                 String designation = rs.getString(7);
                 int charges = rs.getInt(8);
                 String mail = rs.getString(9);
+                int available = rs.getInt(11);
                 employeedetails.put("employeename",employeename);
                 employeedetails.put("mobilenumber",mobilenumber);
                 employeedetails.put("address",address);
@@ -51,6 +52,7 @@ public class getFullEmployeeDetails extends HttpServlet {
                 employeedetails.put("city",city);
                 employeedetails.put("area",area);
                 employeedetails.put("mail",mail);
+                employeedetails.put("available",available);
                 employeedetailsArray.put(employeedetails);
 
             }

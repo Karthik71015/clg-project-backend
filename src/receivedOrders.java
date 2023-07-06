@@ -29,7 +29,7 @@ public class receivedOrders extends HttpServlet {
             Class.forName(dbDriver);
             Connection con = DriverManager.getConnection(dbName,userName,password);
             Statement stmt=con.createStatement();
-            String query="select c.customerid,c.customername,c.city,t.status from customers c inner join Taskinfo t on c.customerid = t.customerid where t.employeeid="+eid+";";
+            String query="select c.customerid,c.customername,c.city,t.status from customers c inner join Taskinfo t on c.customerid = t.customerid where t.employeeid="+eid+" and t.status != -1  and t.status != 2;";
             ResultSet rs = stmt.executeQuery(query);
             JSONArray customerdetailsArray = new JSONArray();
             Boolean ifExist=rs.next();

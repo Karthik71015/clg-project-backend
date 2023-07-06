@@ -46,12 +46,20 @@ public class searchjob extends HttpServlet {
                     String area = rs.getString(6);
                     String designation = rs.getString(7);
                     int charges = rs.getInt(8);
+                    int available = rs.getInt(11);
+                    String query = "select avg(ratings) from ratings where employeeid = "+id+";";
+                    Statement stmt1 = con.createStatement();
+                    ResultSet rs1 = stmt1.executeQuery(query);
+                    rs1.next();
+                    int ratings = rs1.getInt(1);
                     employeedetails.put("id",id);
                     employeedetails.put("employeename",employeename);
                     employeedetails.put("designation",designation);
                     employeedetails.put("charges",charges);
                     employeedetails.put("city",city);
                     employeedetails.put("area",area);
+                    employeedetails.put("available",available);
+                    employeedetails.put("rating",ratings);
                     employeedetailsArray.put(employeedetails);
 
                 }

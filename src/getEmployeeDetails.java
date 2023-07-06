@@ -39,12 +39,14 @@ public class getEmployeeDetails extends HttpServlet {
                        String city = rs.getString(5);
                        String area = rs.getString(6);
                        String designation = rs.getString(7);
+                       int available = rs.getInt(11);
                        int charges = rs.getInt(8);
                        employeedetails.put("employeename",employeename);
                        employeedetails.put("designation",designation);
                        employeedetails.put("charges",charges);
                        employeedetails.put("city",city);
                        employeedetails.put("area",area);
+                       employeedetails.put("available",available);
                        employeedetailsArray.put(employeedetails);
 
                    }
